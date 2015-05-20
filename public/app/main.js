@@ -1,4 +1,4 @@
-angular.module('dmmm', ['ngRoute'])
+angular.module('dmmm', ['ngRoute', 'dmmm.player'])
 	.config(function($locationProvider, $routeProvider){
 
 		$locationProvider.html5Mode(true);
@@ -13,11 +13,14 @@ angular.module('dmmm', ['ngRoute'])
 				controller: 'PlaylistCtrl'
 			});
 	})
-	.controller('MainCtrl', function(){
+	.controller('MainCtrl', function($scope){
 
 	})
-	.controller('PlaylistCtrl', function(){
+	.controller('PlaylistCtrl', function($scope){
 
+		$scope.play = function(){
+			$scope.$broadcast('play');
+		};
 	});
 
 
